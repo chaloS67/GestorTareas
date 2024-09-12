@@ -1,13 +1,23 @@
-<h1>Lista de Tareas</h1>
-<ul>
-    {% for tarea in tarea %}
-    <li>
-        {{ tarea.titulo }}
-        
-        {{tarea.descripcion}}
-        
-        - {% if tarea.completado %} Completada {% else %} Pendiente {% endif %}
-    </li>
-    {% endfor %}
-    
-</ul>
+<!-- templates/tarea/lista_tareas.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <ul>
+        {% for tarea in tareas %}
+            <li>
+                <a href="{% url 'detalle_tarea' tarea.pk %}">{{ tarea.titulo }}</a>  <!-- Usa el nombre del campo correcto -->
+                
+            </li>
+        {% empty %}
+            <li>No hay tareas.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_tarea' %}">Crear nueva tarea</a>
+</body>
+</html>

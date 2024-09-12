@@ -30,6 +30,10 @@ def detalle_tarea(request, pk):
     tarea = get_object_or_404(Tarea, pk=pk)
     return render(request, 'detalle_tarea.html',{'tarea': tarea})
 
-            
+def eliminar_tarea(request, pk):
+    tarea = get_object_or_404(Tarea, pk=pk)
+    tarea.delete()
+    return redirect('lista_tareas')  # Redirige a la lista de tareas después de eliminar
+    
 
 
