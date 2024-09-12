@@ -1,0 +1,13 @@
+<h1>Lista de Tareas</h1>
+<ul>
+    {% for tarea in tarea %}
+    <li>
+        {{ tarea.titulo }}
+        
+        {{tarea.descripcion}}
+        
+        - {% if tarea.completado %} Completada {% else %} Pendiente {% endif %}
+    </li>
+    {% endfor %}
+    
+</ul>
